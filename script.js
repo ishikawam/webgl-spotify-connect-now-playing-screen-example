@@ -186,7 +186,8 @@ function sendCommand(method, command, querystring) {
 }
 
 function fetchVectors(albumimage, callback) {
-  createRequest('POST', 'https://ilovepolygons.possan.se/convert', function (request) {
+  createRequest('POST', 'http://ilovepolygons.possan.se/convert', function (request) {  // 証明書が切れていたので
+//  createRequest('POST', 'https://ilovepolygons.possan.se/convert', function (request) {
     if (request.status >= 200 && request.status < 400) {
       nextVectorData = JSON.parse(request.responseText);
       callback();
@@ -595,6 +596,18 @@ function showLogin() {
 }
 
 function toast(title, subtitle) {
+  // 出しっぱなしにするバージョン
+  document.getElementById('toast').className = 'toast';
+
+  clearTimeout(closetimer);
+  closetimer = setTimeout(function () {
+    document.getElementById('text').innerText = title || '';
+    document.getElementById('text2').innerText = subtitle || '';
+    document.getElementById('toast').className = 'toast visible';
+  }, 1000);
+}
+
+function toast_(title, subtitle) {
   document.getElementById('text').innerText = title || '';
   document.getElementById('text2').innerText = subtitle || '';
   document.getElementById('toast').className = 'toast visible';
