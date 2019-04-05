@@ -186,8 +186,7 @@ function sendCommand(method, command, querystring) {
 }
 
 function fetchVectors(albumimage, callback) {
-  createRequest('POST', 'http://ilovepolygons.possan.se/convert', function (request) {  // 証明書が切れていたので
-//  createRequest('POST', 'https://ilovepolygons.possan.se/convert', function (request) {
+  createRequest('POST', 'https://ilovepolygons.possan.se/convert', function (request) {  // 証明書が切れている
     if (request.status >= 200 && request.status < 400) {
       nextVectorData = JSON.parse(request.responseText);
       callback();
