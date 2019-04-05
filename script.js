@@ -11,7 +11,7 @@
 // where we get/show artist images in addition to the cover art
 
 // auth
-var CLIENT_ID = 'cd0cbddc0c604e839784cfb2b59f8273';
+var CLIENT_ID = 'd2799ba4575b45aebe60ff90c7b1ac86';
 var SCOPES = [
   'user-read-currently-playing',
   'user-read-playback-state',
